@@ -23,7 +23,7 @@ public class Euler {
         while (true) {
             do {
                 System.out.print("\n\n");
-                System.out.print("Please choose an Euler problem: ");
+                System.out.print("Please choose an Euler problem (q to quit): ");
                 response = input.nextLine();
                 if (response.toLowerCase().equals("q")) {
                     System.out.printf("\nThank you!\n\n");
