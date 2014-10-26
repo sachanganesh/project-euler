@@ -43,6 +43,7 @@ public class Euler {
         System.out.print("\n");
         switch (i) {
             case 1: one(); break;
+            case 2: two(); break;
             default: System.out.println("Problem has not been solved yet."); break;
         }
     }
@@ -57,6 +58,21 @@ public class Euler {
                 i++;
         } while (i < cap);
         System.out.println("Sum of all the multiples of 3 or 5 below 1000.");
+        System.out.printf("\n%d", sum);
+    }
+
+    void two() {
+        final int cap = 4000000;
+        int sum = 0, tempSum;
+        int[] fibPair = {1, 2};
+        do {
+            if (fibPair[1] % 2 == 0)
+                sum += fibPair[1];
+            tempSum = fibPair[0] + fibPair[1];
+            fibPair[0] = fibPair[1];
+            fibPair[1] = tempSum;
+        } while (fibPair[1] < cap);
+        System.out.println("Sum of the even-valued terms under 4 million of the Fibonacci Sequence.");
         System.out.printf("\n%d", sum);
     }
 
