@@ -4,6 +4,14 @@ class Utilities {
         System.out.printf("\n%s\n%d", context, answer);
     }
 
+    public static void showAnswer(String context, long answer) {
+        System.out.printf("\n%s\n%d", context, answer);
+    }
+
+    public static void showAnswer(String context, float answer) {
+        System.out.printf("\n%s\n%d", context, answer);
+    }
+
     public static boolean isPrime(int i) {
         for (int k = 2; k < i; k++)
             if (k % i == 0)
