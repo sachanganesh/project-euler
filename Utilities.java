@@ -8,9 +8,9 @@ class Utilities {
         System.out.printf("\n%s\n%f", context, answer);
     }
 
-    public static boolean isPrime(long i) {
-        for (int k = 2; k < i; k++)
-            if (k % i == 0)
+    public static boolean isPrime(long prime) {
+        for(int i = 2; i <= Math.sqrt(prime); i++)
+            if (prime % i == 0)
                 return false;
         return true;
     }

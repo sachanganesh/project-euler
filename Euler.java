@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.math.BigInteger;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Euler {
 
@@ -16,6 +19,7 @@ public class Euler {
     }
 
     void run() {
+        System.out.println(Utilities.isPrime(25));
         String response;
         boolean err = false;
         System.out.printf("\n--Welcome to Euler Solutions--\n");
@@ -35,15 +39,16 @@ public class Euler {
     				err = true;
                 }
             } while (err);
-            pickSolution(choice);
+            pickProblem(choice);
         }
     }
 
-    void pickSolution(int i) {
+    void pickProblem(int i) {
         System.out.print("\n");
         switch (i) {
             case 1: one(); break;
             case 2: two(); break;
+            case 3: three(); break;
             default: System.out.println("Problem has not been solved yet."); break;
         }
     }
@@ -57,8 +62,7 @@ public class Euler {
             else
                 i++;
         } while (i < cap);
-        System.out.println("Sum of all the multiples of 3 or 5 below 1000.");
-        System.out.printf("\n%d", sum);
+        Utilities.showAnswer("Sum of all the multiples of 3 or 5 below " + cap + ".", sum);
     }
 
     void two() {
@@ -72,8 +76,19 @@ public class Euler {
             fibPair[0] = fibPair[1];
             fibPair[1] = tempSum;
         } while (fibPair[1] < cap);
-        System.out.println("Sum of the even-valued terms under 4 million of the Fibonacci Sequence.");
-        System.out.printf("\n%d", sum);
+        Utilities.showAnswer("Sum of the even-valued terms under " + cap + " of the Fibonacci Sequence.", sum);
+    }
+
+    void three() {
+        final long prime = 600851475143L;
+        long primeFactor = 1, i = (long)Math.sqrt(prime);
+        do {
+            if (prime % i == 0)
+                if (Utilities.isPrime(i))
+                    primeFactor = i;
+            i--;
+        } while (i > 1 && primeFactor == 1);
+        Utilities.showAnswer("Largest prime factor of the number " + prime + ".", primeFactor);
     }
 
 }
