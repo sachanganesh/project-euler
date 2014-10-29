@@ -15,4 +15,17 @@ class Utilities {
         return true;
     }
 
+    public static boolean isPalindrome(String palindrome) {
+        String fragment1 = palindrome.substring(0, palindrome.length() / 2),
+        fragment2 = palindrome.substring(palindrome.length() / 2),
+        reverseFragment = "";
+        for (int i = fragment2.length() - 1; i > -1; i--)
+            reverseFragment += fragment2.charAt(i);
+        return fragment1.equals(reverseFragment);
+    }
+
+    public static boolean isPalindrome(long palindrome) {
+        return isPalindrome("" + palindrome);
+    }
+
 }

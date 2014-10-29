@@ -49,6 +49,7 @@ public class Euler {
             case 1: one(); break;
             case 2: two(); break;
             case 3: three(); break;
+            case 4: four(); break;
             default: System.out.println("Problem has not been solved yet."); break;
         }
     }
@@ -89,6 +90,17 @@ public class Euler {
             i--;
         } while (i > 1 && primeFactor == 1);
         Utilities.showAnswer("Largest prime factor of the number " + prime + ".", primeFactor);
+    }
+
+    void four() {
+        String result;
+        int palindrome = 0;
+        doubleCompare:
+        for (int i = 999; i > 99; i--)
+            for (int k = 999; k > 99; k--)
+                if (Utilities.isPalindrome(i * k) && palindrome < i * k)
+                    palindrome = i * k;
+        Utilities.showAnswer("Largest palindrome made from the product of two 3-digit numbers.", palindrome);
     }
 
 }
