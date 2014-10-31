@@ -50,6 +50,7 @@ public class Euler {
             case 2: two(); break;
             case 3: three(); break;
             case 4: four(); break;
+            case 5: five(); break;
             default: System.out.println("Problem has not been solved yet."); break;
         }
     }
@@ -95,12 +96,28 @@ public class Euler {
     void four() {
         String result;
         int palindrome = 0;
-        doubleCompare:
         for (int i = 999; i > 99; i--)
             for (int k = 999; k > 99; k--)
                 if (Utilities.isPalindrome(i * k) && palindrome < i * k)
                     palindrome = i * k;
         Utilities.showAnswer("Largest palindrome made from the product of two 3-digit numbers.", palindrome);
+    }
+
+    void five() {
+        final int min = 1,
+        max = 20;
+        long multiple = 1;
+        for (int i = min; i <= max; i++)
+            if (multiple % i != 0) {
+                if (i % 2 == 0)
+                    multiple *= 2;
+                else if (i % 3 == 0)
+                    multiple *= 3;
+                else
+                    multiple *= i;
+                System.out.println("\nNum (" + multiple + "): " + i + "\n");
+            }
+        Utilities.showAnswer("Smallest positive number that is evenly divisible\nby all of the numbers from " + min + " to " + max + ".", multiple);
     }
 
 }
