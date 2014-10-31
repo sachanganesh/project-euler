@@ -11,11 +11,24 @@ class Utilities {
     * Determines if a number is prime.
     * Returns true if it is prime; false if it is not prime.
     */
-    public static boolean isPrime(Number prime) {
+    public static boolean isPrime(long prime) {
         for(int i = 2; i <= Math.sqrt(prime); i++)
             if (prime % i == 0)
                 return false;
         return true;
+    }
+
+    /*
+    * Determines largest prime factor of a number/square.
+    * Returns largest prime factor of a number/square.
+    */
+    public static long basePrime(long square) {
+        long multiple = square,
+        base = 1;
+        if (isPrime(multiple))
+            return multiple;
+        else
+            return basePrime((long)Math.sqrt(multiple));
     }
 
     /*
