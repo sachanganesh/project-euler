@@ -19,16 +19,15 @@ class Utilities {
     }
 
     /*
-    * Determines largest prime factor of a number/square.
-    * Returns largest prime factor of a number/square.
+    * Determines root prime factor of a number/square.
+    * Returns root prime factor of a number/square.
     */
-    public static long basePrime(long square) {
+    public static long rootPrime(long square) {
         long multiple = square,
         base = 1;
         if (isPrime(multiple))
             return multiple;
-        else
-            return basePrime((long)Math.sqrt(multiple));
+        return rootPrime((long)Math.sqrt(multiple));
     }
 
     /*

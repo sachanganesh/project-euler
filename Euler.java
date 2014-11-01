@@ -172,17 +172,7 @@ public class Euler {
         for (int i = min; i <= max; i++)
             // If it does not evenly divide the decided multiple
             if (multiple % i != 0) {
-                // If it is divisible by 2
-                if (i % 2 == 0)
-                    // Multiply the given multiple by 2
-                    multiple *= 2;
-                // Otherwise if it is divisible by 3
-                else if (i % 3 == 0)
-                    // Multiple the given multiple by 3
-                    multiple *= 3;
-                // Otherwise simply multiply the given multiple by the value
-                else
-                    multiple *= i;
+                multiple *= Utilities.basePrime(i);
             }
         Utilities.showAnswer("Smallest positive number that is evenly divisible\nby all of the numbers from " + min + " to " + max + ".", multiple);
     }
@@ -199,11 +189,12 @@ public class Euler {
     * Remember that Math.pow(x, 2) is the same as x * x! Keep code simple.
     */
     void six() {
-        long sumOfSquares = 0, squareOfSum = 0;
+        long sumOfSquares = 0,
+        squareOfSum = 0;
         for (int i = 1; i <= 100; i++)
-            sumOfSquares += i * i;
+            sumOfSquares += i * i; // Add square of every number
         for (int i = 1; i <= 100; i++)
-            squareOfSum += i;
+            squareOfSum += i; // Add every number, then square total
         squareOfSum *= squareOfSum;
         Utilities.showAnswer("Difference between the sum of the squares of the first 100 natural numbers and the square of the sum.",
             squareOfSum - sumOfSquares);
