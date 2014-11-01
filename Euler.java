@@ -171,10 +171,10 @@ public class Euler {
         // For a value > min and < max
         for (int i = min; i <= max; i++)
             // If it does not evenly divide the decided multiple
-            if (multiple % i != 0) {
-                multiple *= Utilities.basePrime(i);
-            }
-        Utilities.showAnswer("Smallest positive number that is evenly divisible\nby all of the numbers from " + min + " to " + max + ".", multiple);
+            if (multiple % i != 0)
+                multiple *= Utilities.rootPrime(i); // Multiply by the root prime factor
+        Utilities.showAnswer("Smallest positive number that is evenly divisible\nby all of the numbers from " + min + " to " + max + ".",
+            multiple);
     }
 
     /*
