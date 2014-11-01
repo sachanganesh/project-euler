@@ -49,7 +49,7 @@ class Utilities {
     * by calling overloaded method with String param.
     */
     public static boolean isPalindrome(Number palindrome) {
-        return isPalindrome(Long.toString(palindrome));
+        return isPalindrome(String.valueOf(palindrome));
     }
 
 }
