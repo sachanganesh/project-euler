@@ -19,7 +19,6 @@ public class Euler {
     }
 
     void run() {
-        System.out.println(Utilities.isPrime(25));
         String response;
         boolean err = false;
         System.out.printf("\n--Welcome to Euler Solutions--\n");
@@ -51,6 +50,7 @@ public class Euler {
             case 3: three(); break;
             case 4: four(); break;
             case 5: five(); break;
+            case 6: six(); break;
             default: System.out.println("Problem has not been solved yet."); break;
         }
     }
@@ -185,6 +185,28 @@ public class Euler {
                     multiple *= i;
             }
         Utilities.showAnswer("Smallest positive number that is evenly divisible\nby all of the numbers from " + min + " to " + max + ".", multiple);
+    }
+
+    /*
+    * The sum of the squares of the first ten natural numbers is: 1^2 + 2^2 + ... + 10^2 = 385
+    * The square of the sum of the first ten natural numbers is: (1 + 2 + ... + 10)^2 = 55^2 = 3025
+    * Hence the difference between the sum of the squares of the first ten natural numbers
+    * and the square of the sum is 3025 − 385 = 2640.
+    *
+    * Find the difference between the sum of the squares of the first one hundred natural numbers
+    * and the square of the sum.
+    *
+    * Remember that Math.pow(x, 2) is the same as x * x! Keep code simple.
+    */
+    void six() {
+        long sumOfSquares = 0, squareOfSum = 0;
+        for (int i = 1; i <= 100; i++)
+            sumOfSquares += i * i;
+        for (int i = 1; i <= 100; i++)
+            squareOfSum += i;
+        squareOfSum *= squareOfSum;
+        Utilities.showAnswer("Difference between the sum of the squares of the first 100 natural numbers and the square of the sum.",
+            squareOfSum - sumOfSquares);
     }
 
 }
