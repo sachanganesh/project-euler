@@ -246,7 +246,7 @@ public class Euler {
     * Using an array of int values is more effective than repeatedly considering String fragments.
     */
     void eight() {
-        int setSize = 13;
+        int setSize = 13; // Number of consecutive digits to be considered
         String num = "73167176531330624919225119674426574742355349194934" +
             "96983520312774506326239578318016984801869478851843" +
             "85861560789112949495459501737958331952853208805511" +
@@ -267,15 +267,15 @@ public class Euler {
             "84580156166097919133875499200524063689912560717606" +
             "05886116467109405077541002256983155200055935729725" +
             "71636269561882670428252483600823257530420752963450";
-        int[] numList = new int[num.length()];
-        long product = 1, tempProduct = 1;
-        for (int i = 0; i < numList.length; i++)
+        int[] numList = new int[num.length()]; // Array of each digit of number
+        long product = 1, tempProduct = 1; // Values for the product of 13 digits
+        for (int i = 0; i < numList.length; i++) // Assign digits to array
             numList[i] = Character.getNumericValue(num.charAt(i));
-        for (int i = 0; i < numList.length && i + setSize <= numList.length; i++, tempProduct = 1) {
-            for (int j = i; j < i + setSize; j++)
+        for (int i = 0; i < numList.length && i + setSize <= numList.length; i++, tempProduct = 1) { // Shift for every set of 13
+            for (int j = i; j < i + setSize; j++) // Determine product of set
                 tempProduct *= numList[j];
-            if (product < tempProduct)
-                product = tempProduct;
+            if (product < tempProduct) // If the temp value is greater than the prior product
+                product = tempProduct; // The new product is the temp value
         }
         Utilities.showAnswer("Greatest product of " + setSize + " consecutive digits in the 1000 digit number.", product);
     }
