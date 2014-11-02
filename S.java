@@ -34,8 +34,6 @@ class S {
             list[k] = list[n - 1];
             list[n - 1] = temp;
         }
-        for (int i = 0; i < list.length; i++)
-            System.out.println(list[i]);
     }
 
 }
