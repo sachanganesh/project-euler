@@ -15,6 +15,8 @@ public class Euler {
 
     public static void main(String[] args) {
         Euler euler = new Euler();
+        int[] arr = {1, 2, 4, 9, 3, 8, 5, 7, 6};
+        S.selectionSort(arr, true);
         euler.run();
     }
 
