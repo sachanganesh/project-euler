@@ -241,6 +241,9 @@ public class Euler {
     * 71636269561882670428252483600823257530420752963450
     *
     * Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+    *
+    * Remember to check for appropriate memory sizes for use of primitive data types.
+    * Using an array of int values is more effective than repeatedly considering String fragments.
     */
     void eight() {
         int setSize = 13;
@@ -264,17 +267,15 @@ public class Euler {
             "84580156166097919133875499200524063689912560717606" +
             "05886116467109405077541002256983155200055935729725" +
             "71636269561882670428252483600823257530420752963450";
-        System.out.println(num);
         int[] numList = new int[num.length()];
-        long product = 1;
+        long product = 1, tempProduct = 1;
         for (int i = 0; i < numList.length; i++)
             numList[i] = Character.getNumericValue(num.charAt(i));
-        for (int i = 0, k = 1; i < numList.length && i + setSize <= numList.length; i++, k = 1) {
-            for (int j = i; j < i + setSize; j++) {
-                k *= numList[j];
-            }
-            if (product < k)
-                product = k;
+        for (int i = 0; i < numList.length && i + setSize <= numList.length; i++, tempProduct = 1) {
+            for (int j = i; j < i + setSize; j++)
+                tempProduct *= numList[j];
+            if (product < tempProduct)
+                product = tempProduct;
         }
         Utilities.showAnswer("Greatest product of " + setSize + " consecutive digits in the 1000 digit number.", product);
     }
